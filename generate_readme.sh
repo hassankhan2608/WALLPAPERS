@@ -3,12 +3,13 @@
 WALLPAPERS_DIR="Wallpapers"
 README_FILE="README.md"
 
+echo "Generating README.md..." >&2
 echo "# My Wallpapers" > "$README_FILE"
 echo "" >> "$README_FILE"
 echo "A collection of my favorite wallpapers." >> "$README_FILE"
 echo "" >> "$README_FILE"
 
-echo "| Wallpaper 1 | Wallpaper 2 | Wallpaper 3 |" >> "$README_FILE"
+echo "| | | |" >> "$README_FILE"
 echo "|---|---|---|" >> "$README_FILE"
 
 count=0
