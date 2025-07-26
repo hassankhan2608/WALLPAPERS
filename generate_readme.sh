@@ -37,12 +37,12 @@ row_content=""
 for img in "$WALLPAPERS_DIR"/*.{jpg,jpeg,png,gif,webp}; do
   if [ -f "$img" ]; then
     relative_path=$(basename "$img")
-    # URL-encode the filename for the Markdown link using the new function
+    # URL-encode the filename for the Markdown link
     encoded_path=$(urlencode "${WALLPAPERS_DIR}/${relative_path}")
     # Extract name without extension
     wallpaper_name="${relative_path%.*}"
-    # Add image and name below it, using <br> for line break within cell
-    row_content+="![${wallpaper_name}](${encoded_path})<br>${wallpaper_name} | "
+    # Use HTML <img> tag with a fixed width for consistent display
+    row_content+="<img src=\"${encoded_path}\" width=\"250\" alt=\"${wallpaper_name}\"><br>${wallpaper_name} | "
     count=$((count + 1))
 
     if [ "$count" -eq 3 ]; then
