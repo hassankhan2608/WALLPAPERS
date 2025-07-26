@@ -39,19 +39,11 @@ for img in "$WALLPAPERS_DIR"/*.{jpg,jpeg,png,gif,webp}; do
     relative_path=$(basename "$img")
     # URL-encode the filename for the Markdown link
     encoded_path=$(urlencode "${WALLPAPERS_DIR}/${relative_path}")
-    # Extract name without extension
+    # Extract name without extension (still used for alt text)
     wallpaper_name="${relative_path%.*}"
 
-    # Truncate long wallpaper names for display
-    if [ ${#wallpaper_name} -gt 25 ]; then
-      display_name="${wallpaper_name:0:22}..."
-    else
-      display_name="${wallpaper_name}"
-    fi
-
-    # Use HTML <img> tag with a fixed width for consistent display
-    # Add download button next to the name, with target="_blank"
-    row_content+="<img src=\"${encoded_path}\" width=\"250\" alt=\"${wallpaper_name}\"><br>${display_name} <a href=\"${encoded_path}\" download=\"${relative_path}\" target=\"_blank\">[DL]</a> | "
+    # Use HTML <img> tag with a fixed width, wrapped in an <a> tag to open in new tab
+    row_content+="<a href=\"${encoded_path}\" target=\"_blank\"><img src=\"${encoded_path}\" width=\"250\" alt=\"${wallpaper_name}\"></a> | "
     count=$((count + 1))
 
     if [ "$count" -eq 3 ]; then
