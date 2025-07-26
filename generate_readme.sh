@@ -28,11 +28,9 @@ echo "" >> "$README_FILE"
 echo "A collection of my favorite wallpapers." >> "$README_FILE"
 echo "" >> "$README_FILE"
 
-echo "| | | |" >> "$README_FILE"
-echo "|---|---|---|" >> "$README_FILE"
-
-count=0
-row_content=""
+# Table header for Name | Image | Download
+echo "| Name | Image | Download |" >> "$README_FILE"
+echo "|:---|:---:|---:|" >> "$README_FILE" # Left-align name, center-align image, right-align download
 
 for img in "$WALLPAPERS_DIR"/*.{jpg,jpeg,png,gif,webp}; do
   if [ -f "$img" ]; then
@@ -49,29 +47,10 @@ for img in "$WALLPAPERS_DIR"/*.{jpg,jpeg,png,gif,webp}; do
       display_name="${wallpaper_name}"
     fi
 
-    # Use HTML <img> tag with a fixed width for consistent display
-    row_content+="<img src=\"${encoded_path}\" width=\"250\" alt=\"${wallpaper_name}\"><br>${display_name} | "
-    count=$((count + 1))
-
-    if [ "$count" -eq 3 ]; then
-      echo "$row_content" >> "$README_FILE"
-      echo "| | | |" >> "$README_FILE" # This creates a blank row for separation
-      row_content=""
-      count=0
-    fi
+    # Generate the table row content
+    echo "| ${display_name} | <img src=\"${encoded_path}\" width=\"250\" alt=\"${wallpaper_name}\"> | <a href=\"${encoded_path}\" download=\"${relative_path}\">⬇️ Download</a> |" >> "$README_FILE"
   fi
 done
-
-# Add any remaining images if they don't fill a full row
-if [ "$count" -gt 0 ]; then
-  # Pad with empty cells if necessary
-  while [ "$count" -lt 3 ]; do
-    row_content+=" | "
-    count=$((count + 1))
-  done
-  echo "$row_content" >> "$README_FILE"
-  echo "| | | |" >> "$README_FILE"
-fi
 
 echo "" >> "$README_FILE"
 echo "---" >> "$README_FILE"
