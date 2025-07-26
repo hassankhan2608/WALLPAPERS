@@ -50,8 +50,8 @@ for img in "$WALLPAPERS_DIR"/*.{jpg,jpeg,png,gif,webp}; do
     fi
 
     # Use HTML <img> tag with a fixed width for consistent display
-    # Add download button next to the name
-    row_content+="<img src=\"${encoded_path}\" width=\"250\" alt=\"${wallpaper_name}\"><br>${display_name} <a href=\"${encoded_path}\" download=\"${relative_path}\">[DL]</a> | "
+    # Add download button next to the name, with target="_blank"
+    row_content+="<img src=\"${encoded_path}\" width=\"250\" alt=\"${wallpaper_name}\"><br>${display_name} <a href=\"${encoded_path}\" download=\"${relative_path}\" target=\"_blank\">[DL]</a> | "
     count=$((count + 1))
 
     if [ "$count" -eq 3 ]; then
