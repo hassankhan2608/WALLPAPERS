@@ -2,7 +2,7 @@
 
 A collection of my favorite wallpapers.
 
-| Wallpaper 1 | Wallpaper 2 | Wallpaper 3 |
+| | | |
 |---|---|---|
 ![1533132160_preview_6ZUPHE5](Wallpapers/1533132160_preview_6ZUPHE5.jpg) | ![aesthetic_deer](Wallpapers/aesthetic_deer.jpg) | ![apex_octane](Wallpapers/apex_octane.jpg) | 
 ![astronaut_jellyfish](Wallpapers/astronaut_jellyfish.jpg) | ![blue_night_moon_over_lake](Wallpapers/blue_night_moon_over_lake.jpg) | ![car_on_mars](Wallpapers/car_on_mars.jpg) | 
