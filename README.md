@@ -4,7 +4,7 @@ A collection of my favorite wallpapers.
 
 | | | |
 |---|---|---|
-<img src="Wallpapers%2f1533132160_preview_6ZUPHE5.jpg" width="250" alt="1533132160_preview_6ZUPHE5"><br>1533132160_preview_6ZUPHE5 | <img src="Wallpapers%2faesthetic_deer.jpg" width="250" alt="aesthetic_deer"><br>aesthetic_deer | <img src="Wallpapers%2fapex_octane.jpg" width="250" alt="apex_octane"><br>apex_octane | 
+<img src="Wallpapers%2f1533132160_preview_6ZUPHE5.jpg" width="250" alt="1533132160_preview_6ZUPHE5"><br>1533132160_preview_6ZU... | <img src="Wallpapers%2faesthetic_deer.jpg" width="250" alt="aesthetic_deer"><br>aesthetic_deer | <img src="Wallpapers%2fapex_octane.jpg" width="250" alt="apex_octane"><br>apex_octane | 
 | | | |
 <img src="Wallpapers%2fastronaut_jellyfish.jpg" width="250" alt="astronaut_jellyfish"><br>astronaut_jellyfish | <img src="Wallpapers%2fblue_night_moon_over_lake.jpg" width="250" alt="blue_night_moon_over_lake"><br>blue_night_moon_over_lake | <img src="Wallpapers%2fcar_on_mars.jpg" width="250" alt="car_on_mars"><br>car_on_mars | 
 | | | |
@@ -12,9 +12,9 @@ A collection of my favorite wallpapers.
 | | | |
 <img src="Wallpapers%2fcyberpunk.jpg" width="250" alt="cyberpunk"><br>cyberpunk | <img src="Wallpapers%2fdark-star.jpg" width="250" alt="dark-star"><br>dark-star | <img src="Wallpapers%2fdeer_and_sunset.jpg" width="250" alt="deer_and_sunset"><br>deer_and_sunset | 
 | | | |
-<img src="Wallpapers%2fdeer_in_pine_forest.jpg" width="250" alt="deer_in_pine_forest"><br>deer_in_pine_forest | <img src="Wallpapers%2fdefault.jpg" width="250" alt="default"><br>default | <img src="Wallpapers%2fdemon-slayer-5120x2880-16945.jpg" width="250" alt="demon-slayer-5120x2880-16945"><br>demon-slayer-5120x2880-16945 | 
+<img src="Wallpapers%2fdeer_in_pine_forest.jpg" width="250" alt="deer_in_pine_forest"><br>deer_in_pine_forest | <img src="Wallpapers%2fdefault.jpg" width="250" alt="default"><br>default | <img src="Wallpapers%2fdemon-slayer-5120x2880-16945.jpg" width="250" alt="demon-slayer-5120x2880-16945"><br>demon-slayer-5120x2880... | 
 | | | |
-<img src="Wallpapers%2fdeparture.jpg" width="250" alt="departure"><br>departure | <img src="Wallpapers%2fDesert-With-Mountains-Moon.jpg" width="250" alt="Desert-With-Mountains-Moon"><br>Desert-With-Mountains-Moon | <img src="Wallpapers%2fdunes-sun.jpg" width="250" alt="dunes-sun"><br>dunes-sun | 
+<img src="Wallpapers%2fdeparture.jpg" width="250" alt="departure"><br>departure | <img src="Wallpapers%2fDesert-With-Mountains-Moon.jpg" width="250" alt="Desert-With-Mountains-Moon"><br>Desert-With-Mountains-... | <img src="Wallpapers%2fdunes-sun.jpg" width="250" alt="dunes-sun"><br>dunes-sun | 
 | | | |
 <img src="Wallpapers%2fearth-from-moon.jpg" width="250" alt="earth-from-moon"><br>earth-from-moon | <img src="Wallpapers%2fescape_velocity.jpg" width="250" alt="escape_velocity"><br>escape_velocity | <img src="Wallpapers%2fevening-landscape.jpg" width="250" alt="evening-landscape"><br>evening-landscape | 
 | | | |
@@ -26,7 +26,7 @@ A collection of my favorite wallpapers.
 | | | |
 <img src="Wallpapers%2fgdtography.jpg" width="250" alt="gdtography"><br>gdtography | <img src="Wallpapers%2fglowing-green-dew.jpg" width="250" alt="glowing-green-dew"><br>glowing-green-dew | <img src="Wallpapers%2fgreen_sea.jpg" width="250" alt="green_sea"><br>green_sea | 
 | | | |
-<img src="Wallpapers%2fgroot_1.jpg" width="250" alt="groot_1"><br>groot_1 | <img src="Wallpapers%2fhatsunemiku.jpg" width="250" alt="hatsunemiku"><br>hatsunemiku | <img src="Wallpapers%2fheadphones-paint-color-splash.jpg" width="250" alt="headphones-paint-color-splash"><br>headphones-paint-color-splash | 
+<img src="Wallpapers%2fgroot_1.jpg" width="250" alt="groot_1"><br>groot_1 | <img src="Wallpapers%2fhatsunemiku.jpg" width="250" alt="hatsunemiku"><br>hatsunemiku | <img src="Wallpapers%2fheadphones-paint-color-splash.jpg" width="250" alt="headphones-paint-color-splash"><br>headphones-paint-color... | 
 | | | |
 <img src="Wallpapers%2fkaiju.jpg" width="250" alt="kaiju"><br>kaiju | <img src="Wallpapers%2fkath.jpg" width="250" alt="kath"><br>kath | <img src="Wallpapers%2fkeycap.jpg" width="250" alt="keycap"><br>keycap | 
 | | | |
@@ -38,7 +38,7 @@ A collection of my favorite wallpapers.
 | | | |
 <img src="Wallpapers%2fluffy.jpg" width="250" alt="luffy"><br>luffy | <img src="Wallpapers%2fmagic.jpg" width="250" alt="magic"><br>magic | <img src="Wallpapers%2fmars.jpg" width="250" alt="mars"><br>mars | 
 | | | |
-<img src="Wallpapers%2fmidnight-reflections-moonlit-sea.jpg" width="250" alt="midnight-reflections-moonlit-sea"><br>midnight-reflections-moonlit-sea | <img src="Wallpapers%2fminimal-beton-building.jpg" width="250" alt="minimal-beton-building"><br>minimal-beton-building | <img src="Wallpapers%2fminimalist-arch-02.jpg" width="250" alt="minimalist-arch-02"><br>minimalist-arch-02 | 
+<img src="Wallpapers%2fmidnight-reflections-moonlit-sea.jpg" width="250" alt="midnight-reflections-moonlit-sea"><br>midnight-reflections-m... | <img src="Wallpapers%2fminimal-beton-building.jpg" width="250" alt="minimal-beton-building"><br>minimal-beton-building | <img src="Wallpapers%2fminimalist-arch-02.jpg" width="250" alt="minimalist-arch-02"><br>minimalist-arch-02 | 
 | | | |
 <img src="Wallpapers%2fmiracleOS_dark.jpg" width="250" alt="miracleOS_dark"><br>miracleOS_dark | <img src="Wallpapers%2fmiracleOS_light.jpg" width="250" alt="miracleOS_light"><br>miracleOS_light | <img src="Wallpapers%2fmonstad_in_dark.jpg" width="250" alt="monstad_in_dark"><br>monstad_in_dark | 
 | | | |
@@ -48,13 +48,13 @@ A collection of my favorite wallpapers.
 | | | |
 <img src="Wallpapers%2fmountain_view.jpg" width="250" alt="mountain_view"><br>mountain_view | <img src="Wallpapers%2fmountain-winter1.jpg" width="250" alt="mountain-winter1"><br>mountain-winter1 | <img src="Wallpapers%2fmountain-winter3.jpg" width="250" alt="mountain-winter3"><br>mountain-winter3 | 
 | | | |
-<img src="Wallpapers%2fmountain-winter-sun.jpg" width="250" alt="mountain-winter-sun"><br>mountain-winter-sun | <img src="Wallpapers%2fmuscle-car-ice-road-red-moon.jpg" width="250" alt="muscle-car-ice-road-red-moon"><br>muscle-car-ice-road-red-moon | <img src="Wallpapers%2fmystical-night-in-town.jpg" width="250" alt="mystical-night-in-town"><br>mystical-night-in-town | 
+<img src="Wallpapers%2fmountain-winter-sun.jpg" width="250" alt="mountain-winter-sun"><br>mountain-winter-sun | <img src="Wallpapers%2fmuscle-car-ice-road-red-moon.jpg" width="250" alt="muscle-car-ice-road-red-moon"><br>muscle-car-ice-road-re... | <img src="Wallpapers%2fmystical-night-in-town.jpg" width="250" alt="mystical-night-in-town"><br>mystical-night-in-town | 
 | | | |
 <img src="Wallpapers%2fno-mans-land.jpg" width="250" alt="no-mans-land"><br>no-mans-land | <img src="Wallpapers%2frei_ayanami.jpg" width="250" alt="rei_ayanami"><br>rei_ayanami | <img src="Wallpapers%2fWall%20037.jpg" width="250" alt="Wall 037"><br>Wall 037 | 
 | | | |
 <img src="Wallpapers%2fWall%20039.jpg" width="250" alt="Wall 039"><br>Wall 039 | <img src="Wallpapers%2fWall%20119.jpg" width="250" alt="Wall 119"><br>Wall 119 | <img src="Wallpapers%2fWall%20121.jpg" width="250" alt="Wall 121"><br>Wall 121 | 
 | | | |
-<img src="Wallpapers%2fWall%20122.jpg" width="250" alt="Wall 122"><br>Wall 122 | <img src="Wallpapers%2fwallhaven1.jpg" width="250" alt="wallhaven1"><br>wallhaven1 | <img src="Wallpapers%2fwatchtower-mountains-and-forests.jpg" width="250" alt="watchtower-mountains-and-forests"><br>watchtower-mountains-and-forests | 
+<img src="Wallpapers%2fWall%20122.jpg" width="250" alt="Wall 122"><br>Wall 122 | <img src="Wallpapers%2fwallhaven1.jpg" width="250" alt="wallhaven1"><br>wallhaven1 | <img src="Wallpapers%2fwatchtower-mountains-and-forests.jpg" width="250" alt="watchtower-mountains-and-forests"><br>watchtower-mountains-a... | 
 | | | |
 <img src="Wallpapers%2fWP19.jpg" width="250" alt="WP19"><br>WP19 | <img src="Wallpapers%2fWsSZ0dF.jpg" width="250" alt="WsSZ0dF"><br>WsSZ0dF | <img src="Wallpapers%2fcatching-the-desert.jpeg" width="250" alt="catching-the-desert"><br>catching-the-desert | 
 | | | |
@@ -62,13 +62,13 @@ A collection of my favorite wallpapers.
 | | | |
 <img src="Wallpapers%2fak4hw2k0pgm0negkoe6o.png" width="250" alt="ak4hw2k0pgm0negkoe6o"><br>ak4hw2k0pgm0negkoe6o | <img src="Wallpapers%2fbawvkieakrv1ogz27lj3.png" width="250" alt="bawvkieakrv1ogz27lj3"><br>bawvkieakrv1ogz27lj3 | <img src="Wallpapers%2fbloodrock-steppes.png" width="250" alt="bloodrock-steppes"><br>bloodrock-steppes | 
 | | | |
-<img src="Wallpapers%2fBloom%20Dark%20Green%20Wallpaper.png" width="250" alt="Bloom Dark Green Wallpaper"><br>Bloom Dark Green Wallpaper | <img src="Wallpapers%2fcbgwxpp2w3pirl82tsxq.png" width="250" alt="cbgwxpp2w3pirl82tsxq"><br>cbgwxpp2w3pirl82tsxq | <img src="Wallpapers%2fcc2eelkzrhfvqa0yqoii.png" width="250" alt="cc2eelkzrhfvqa0yqoii"><br>cc2eelkzrhfvqa0yqoii | 
+<img src="Wallpapers%2fBloom%20Dark%20Green%20Wallpaper.png" width="250" alt="Bloom Dark Green Wallpaper"><br>Bloom Dark Green Wallp... | <img src="Wallpapers%2fcbgwxpp2w3pirl82tsxq.png" width="250" alt="cbgwxpp2w3pirl82tsxq"><br>cbgwxpp2w3pirl82tsxq | <img src="Wallpapers%2fcc2eelkzrhfvqa0yqoii.png" width="250" alt="cc2eelkzrhfvqa0yqoii"><br>cc2eelkzrhfvqa0yqoii | 
 | | | |
 <img src="Wallpapers%2fcorndog.png" width="250" alt="corndog"><br>corndog | <img src="Wallpapers%2fcosmic.png" width="250" alt="cosmic"><br>cosmic | <img src="Wallpapers%2fcosmos.png" width="250" alt="cosmos"><br>cosmos | 
 | | | |
-<img src="Wallpapers%2fcyberpunk.png" width="250" alt="cyberpunk"><br>cyberpunk | <img src="Wallpapers%2fdepechemode-violator.png" width="250" alt="depechemode-violator"><br>depechemode-violator | <img src="Wallpapers%2fdesktop_background_in_4k_it_s_fuso__ayako_by_trutkach_diqkcr4.png" width="250" alt="desktop_background_in_4k_it_s_fuso__ayako_by_trutkach_diqkcr4"><br>desktop_background_in_4k_it_s_fuso__ayako_by_trutkach_diqkcr4 | 
+<img src="Wallpapers%2fcyberpunk.png" width="250" alt="cyberpunk"><br>cyberpunk | <img src="Wallpapers%2fdepechemode-violator.png" width="250" alt="depechemode-violator"><br>depechemode-violator | <img src="Wallpapers%2fdesktop_background_in_4k_it_s_fuso__ayako_by_trutkach_diqkcr4.png" width="250" alt="desktop_background_in_4k_it_s_fuso__ayako_by_trutkach_diqkcr4"><br>desktop_background_in_... | 
 | | | |
-<img src="Wallpapers%2fdesktop_background_in_4k_it_s_fusu__meiniang_by_trutkach_diqke1p.png" width="250" alt="desktop_background_in_4k_it_s_fusu__meiniang_by_trutkach_diqke1p"><br>desktop_background_in_4k_it_s_fusu__meiniang_by_trutkach_diqke1p | <img src="Wallpapers%2fe9grmugyrvl0yd4uccq4.png" width="250" alt="e9grmugyrvl0yd4uccq4"><br>e9grmugyrvl0yd4uccq4 | <img src="Wallpapers%2fexplorer-robot.png" width="250" alt="explorer-robot"><br>explorer-robot | 
+<img src="Wallpapers%2fdesktop_background_in_4k_it_s_fusu__meiniang_by_trutkach_diqke1p.png" width="250" alt="desktop_background_in_4k_it_s_fusu__meiniang_by_trutkach_diqke1p"><br>desktop_background_in_... | <img src="Wallpapers%2fe9grmugyrvl0yd4uccq4.png" width="250" alt="e9grmugyrvl0yd4uccq4"><br>e9grmugyrvl0yd4uccq4 | <img src="Wallpapers%2fexplorer-robot.png" width="250" alt="explorer-robot"><br>explorer-robot | 
 | | | |
 <img src="Wallpapers%2fFantasy-Autumn.png" width="250" alt="Fantasy-Autumn"><br>Fantasy-Autumn | <img src="Wallpapers%2fFantasy-Landscape3.png" width="250" alt="Fantasy-Landscape3"><br>Fantasy-Landscape3 | <img src="Wallpapers%2fjmobnom2pujnf84yulku.png" width="250" alt="jmobnom2pujnf84yulku"><br>jmobnom2pujnf84yulku | 
 | | | |
