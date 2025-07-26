@@ -41,8 +41,16 @@ for img in "$WALLPAPERS_DIR"/*.{jpg,jpeg,png,gif,webp}; do
     encoded_path=$(urlencode "${WALLPAPERS_DIR}/${relative_path}")
     # Extract name without extension
     wallpaper_name="${relative_path%.*}"
+
+    # Truncate long wallpaper names for display
+    if [ ${#wallpaper_name} -gt 25 ]; then
+      display_name="${wallpaper_name:0:22}..."
+    else
+      display_name="${wallpaper_name}"
+    fi
+
     # Use HTML <img> tag with a fixed width for consistent display
-    row_content+="<img src=\"${encoded_path}\" width=\"250\" alt=\"${wallpaper_name}\"><br>${wallpaper_name} | "
+    row_content+="<img src=\"${encoded_path}\" width=\"250\" alt=\"${wallpaper_name}\"><br>${display_name} | "
     count=$((count + 1))
 
     if [ "$count" -eq 3 ]; then
