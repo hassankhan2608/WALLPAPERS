@@ -17,13 +17,16 @@ from urllib.parse import quote
 
 from PIL import Image
 
+# The workflow only processes images committed by the repository owner.
+Image.MAX_IMAGE_PIXELS = None
+
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_DIR = ROOT / "Wallpapers"
 OUTPUT_DIR = ROOT / ".wallpaper-catalog"
 CACHE_DIR = ROOT / ".wallpaper-cache"
 THUMBNAIL_SIZE = (640, 360)
 SAMPLE_SIZE = (8, 8)
-METADATA_VERSION = 1
+METADATA_VERSION = 2
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
 COLOR_GROUPS = ("red", "orange", "yellow", "green", "blue", "purple")
 WALLHAVEN_PATTERN = re.compile(r"wallhaven-([a-z0-9]+)", re.IGNORECASE)
@@ -77,14 +80,16 @@ def analyze_colors(sample: Image.Image) -> tuple[str, list[str]]:
 
     grid = sample.resize(SAMPLE_SIZE, Image.Resampling.BILINEAR)
     counts: Counter[str] = Counter()
-    for pixel in grid.getdata():
-        _, saturation, value = colorsys.rgb_to_hsv(
-            pixel[0] / 255,
-            pixel[1] / 255,
-            pixel[2] / 255,
-        )
-        if saturation >= 0.25 and value >= 0.20:
-            counts[color_group(*pixel)] += 1
+    for x in range(SAMPLE_SIZE[0]):
+        for y in range(SAMPLE_SIZE[1]):
+            pixel = grid.getpixel((x, y))
+            _, saturation, value = colorsys.rgb_to_hsv(
+                pixel[0] / 255,
+                pixel[1] / 255,
+                pixel[2] / 255,
+            )
+            if saturation >= 0.25 and value >= 0.20:
+                counts[color_group(*pixel)] += 1
 
     groups = [group for group, count in counts.items() if count >= 12]
     if not groups and counts:
@@ -113,9 +118,8 @@ def process_image(path: Path, blob_sha: str) -> dict[str, object]:
     try:
         with Image.open(path) as source:
             width, height = source.size
-            thumbnail = source.copy()
-            thumbnail.thumbnail(THUMBNAIL_SIZE)
-            thumbnail.save(cached_thumbnail, "WEBP", optimize=True, quality=85)
+            source.thumbnail(THUMBNAIL_SIZE)
+            source.save(cached_thumbnail, "WEBP", optimize=True, quality=85)
     except Exception as error:
         print(f"Pillow could not process {path.name}: {error}. Using ImageMagick.")
         dimensions = subprocess.run(

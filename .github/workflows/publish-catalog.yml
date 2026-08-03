@@ -34,9 +34,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .wallpaper-cache
-          key: ${{ runner.os }}-wallpaper-catalog-v1-${{ github.run_id }}
+          key: ${{ runner.os }}-wallpaper-catalog-v2-${{ github.run_id }}
           restore-keys: |
-            ${{ runner.os }}-wallpaper-catalog-v1-
+            ${{ runner.os }}-wallpaper-catalog-v2-
 
       - name: Install image tooling
         run: |
