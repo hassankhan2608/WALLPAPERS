@@ -10,19 +10,15 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
     steps:
       - name: Checkout repository and image history
         uses: actions/checkout@v4
@@ -32,23 +28,23 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: "3.13"
+          python-version: "3.x"
 
       - name: Restore generated metadata and thumbnails
         uses: actions/cache@v4
         with:
           path: .wallpaper-cache
-          key: ${{ runner.os }}-wallpaper-catalog-${{ github.sha }}
+          key: ${{ runner.os }}-wallpaper-catalog-v1-${{ github.run_id }}
           restore-keys: |
-            ${{ runner.os }}-wallpaper-catalog-
+            ${{ runner.os }}-wallpaper-catalog-v1-
 
       - name: Install image tooling
         run: |
-          sudo apt-get update
-          sudo apt-get install --yes --no-install-recommends libvips-tools
-          python -m pip install --disable-pip-version-check Pillow==11.3.0
+          sudo apt-get update && sudo apt-get install --yes imagemagick
+          python -m pip install --upgrade pip
+          python -m pip install Pillow
 
-      - name: Generate catalog
+      - name: Generate catalog and README
         env:
           PAGES_BASE_URL: https://hassankhan2608.github.io/WALLPAPERS
         run: python .github/scripts/generate_catalog.py
@@ -64,24 +60,10 @@ jobs:
           git commit -m "docs: refresh wallpaper thumbnail index"
           git push
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload catalog artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .wallpaper-catalog
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-    steps:
       - name: Deploy catalog to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .wallpaper-catalog
+          publish_branch: gh-pages
+          force_orphan: true

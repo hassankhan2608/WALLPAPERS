@@ -6,7 +6,6 @@ import colorsys
 import html
 import io
 import json
-import math
 import os
 import re
 import shutil
@@ -23,7 +22,8 @@ SOURCE_DIR = ROOT / "Wallpapers"
 OUTPUT_DIR = ROOT / ".wallpaper-catalog"
 CACHE_DIR = ROOT / ".wallpaper-cache"
 THUMBNAIL_SIZE = (640, 360)
-SAMPLE_SIZE = (64, 64)
+SAMPLE_SIZE = (8, 8)
+METADATA_VERSION = 1
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
 COLOR_GROUPS = ("red", "orange", "yellow", "green", "blue", "purple")
 WALLHAVEN_PATTERN = re.compile(r"wallhaven-([a-z0-9]+)", re.IGNORECASE)
@@ -58,44 +58,41 @@ def tracked_images() -> list[Path]:
 def color_group(red: int, green: int, blue: int) -> str:
     hue, _, _ = colorsys.rgb_to_hsv(red / 255, green / 255, blue / 255)
     degrees = hue * 360
-    if degrees < 15 or degrees >= 345:
+    if degrees < 10 or degrees >= 345:
         return "red"
     if degrees < 45:
         return "orange"
     if degrees < 70:
         return "yellow"
-    if degrees < 165:
+    if degrees < 160:
         return "green"
-    if degrees < 260:
+    if degrees < 250:
         return "blue"
     return "purple"
 
 
 def analyze_colors(sample: Image.Image) -> tuple[str, list[str]]:
-    pixels = list(sample.getdata())
-    red = round(sum(pixel[0] for pixel in pixels) / len(pixels))
-    green = round(sum(pixel[1] for pixel in pixels) / len(pixels))
-    blue = round(sum(pixel[2] for pixel in pixels) / len(pixels))
+    red, green, blue = sample.resize((1, 1), Image.Resampling.BILINEAR).getpixel((0, 0))
     dominant = f"#{red:02x}{green:02x}{blue:02x}"
 
+    grid = sample.resize(SAMPLE_SIZE, Image.Resampling.BILINEAR)
     counts: Counter[str] = Counter()
-    for pixel in pixels:
+    for pixel in grid.getdata():
         _, saturation, value = colorsys.rgb_to_hsv(
             pixel[0] / 255,
             pixel[1] / 255,
             pixel[2] / 255,
         )
-        if saturation >= 0.22 and 0.12 <= value <= 0.97:
+        if saturation >= 0.25 and value >= 0.20:
             counts[color_group(*pixel)] += 1
 
-    threshold = max(1, math.ceil(len(pixels) * 0.025))
-    groups = [group for group in COLOR_GROUPS if counts[group] >= threshold]
-    if not groups:
-        _, saturation, value = colorsys.rgb_to_hsv(red / 255, green / 255, blue / 255)
-        if saturation >= 0.18 and 0.12 <= value <= 0.97:
-            groups = [color_group(red, green, blue)]
+    groups = [group for group, count in counts.items() if count >= 12]
+    if not groups and counts:
+        top = max(counts, key=counts.get)
+        if counts[top] >= 6:
+            groups = [top]
 
-    return dominant, groups
+    return dominant, sorted(groups)
 
 
 def process_image(path: Path, blob_sha: str) -> dict[str, object]:
@@ -104,53 +101,55 @@ def process_image(path: Path, blob_sha: str) -> dict[str, object]:
     output_thumbnail = OUTPUT_DIR / "thumbnails" / f"{blob_sha}.webp"
 
     if cached_metadata.is_file() and cached_thumbnail.is_file():
-        metadata = json.loads(cached_metadata.read_text(encoding="utf-8"))
-        shutil.copy2(cached_thumbnail, output_thumbnail)
-        return metadata
-
-    width = int(
-        subprocess.run(
-            ["vipsheader", "-f", "width", str(path)],
-            check=True,
-            stdout=subprocess.PIPE,
-            text=True,
-        ).stdout.strip()
-    )
-    height = int(
-        subprocess.run(
-            ["vipsheader", "-f", "height", str(path)],
-            check=True,
-            stdout=subprocess.PIPE,
-            text=True,
-        ).stdout.strip()
-    )
+        cached = json.loads(cached_metadata.read_text(encoding="utf-8"))
+        if cached.get("_version") == METADATA_VERSION:
+            metadata = {key: value for key, value in cached.items() if key != "_version"}
+            shutil.copy2(cached_thumbnail, output_thumbnail)
+            return metadata
 
     cached_thumbnail.parent.mkdir(parents=True, exist_ok=True)
-    subprocess.run(
-        [
-            "vipsthumbnail",
+    width = 0
+    height = 0
+    try:
+        with Image.open(path) as source:
+            width, height = source.size
+            thumbnail = source.copy()
+            thumbnail.thumbnail(THUMBNAIL_SIZE)
+            thumbnail.save(cached_thumbnail, "WEBP", optimize=True, quality=85)
+    except Exception as error:
+        print(f"Pillow could not process {path.name}: {error}. Using ImageMagick.")
+        dimensions = subprocess.run(
+            ["identify", "-format", "%w %h", str(path)],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        ).stdout.split()
+        width, height = map(int, dimensions[:2])
+
+        command = [
+            "magick",
             str(path),
-            "--size",
+            "-thumbnail",
             f"{THUMBNAIL_SIZE[0]}x{THUMBNAIL_SIZE[1]}",
-            "--crop",
-            "centre",
-            "--output",
-            f"{cached_thumbnail}[Q=82,strip]",
-        ],
-        check=True,
-    )
-    shutil.copy2(cached_thumbnail, output_thumbnail)
+            "-quality",
+            "85",
+            str(cached_thumbnail),
+        ]
+        try:
+            subprocess.run(command, check=True, stderr=subprocess.PIPE)
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            command[0] = "convert"
+            subprocess.run(command, check=True)
 
     with Image.open(cached_thumbnail) as source:
         thumbnail = source.convert("RGB")
-        sample = thumbnail.copy()
-        sample.thumbnail(SAMPLE_SIZE, Image.Resampling.LANCZOS)
-        dominant_color, color_groups = analyze_colors(sample)
-
+        dominant_color, color_groups = analyze_colors(thumbnail)
         blur = thumbnail.resize((16, 9), Image.Resampling.BILINEAR)
         blur_buffer = io.BytesIO()
         blur.save(blur_buffer, "WEBP", quality=25, method=4)
 
+    shutil.copy2(cached_thumbnail, output_thumbnail)
     metadata: dict[str, object] = {
         "width": width,
         "height": height,
@@ -159,7 +158,10 @@ def process_image(path: Path, blob_sha: str) -> dict[str, object]:
         "blurDataUrl": f"data:image/webp;base64,{base64.b64encode(blur_buffer.getvalue()).decode('ascii')}",
     }
     cached_metadata.parent.mkdir(parents=True, exist_ok=True)
-    cached_metadata.write_text(json.dumps(metadata, separators=(",", ":")), encoding="utf-8")
+    cached_metadata.write_text(
+        json.dumps({"_version": METADATA_VERSION, **metadata}, separators=(",", ":")),
+        encoding="utf-8",
+    )
     return metadata
 
 
