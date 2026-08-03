@@ -16,7 +16,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
 
-from PIL import Image, ImageOps
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE_DIR = ROOT / "Wallpapers"
@@ -108,19 +108,44 @@ def process_image(path: Path, blob_sha: str) -> dict[str, object]:
         shutil.copy2(cached_thumbnail, output_thumbnail)
         return metadata
 
-    with Image.open(path) as source:
-        source.seek(0)
-        image = ImageOps.exif_transpose(source).convert("RGB")
-        width, height = image.size
+    width = int(
+        subprocess.run(
+            ["vipsheader", "-f", "width", str(path)],
+            check=True,
+            stdout=subprocess.PIPE,
+            text=True,
+        ).stdout.strip()
+    )
+    height = int(
+        subprocess.run(
+            ["vipsheader", "-f", "height", str(path)],
+            check=True,
+            stdout=subprocess.PIPE,
+            text=True,
+        ).stdout.strip()
+    )
 
-        sample = image.copy()
+    cached_thumbnail.parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run(
+        [
+            "vipsthumbnail",
+            str(path),
+            "--size",
+            f"{THUMBNAIL_SIZE[0]}x{THUMBNAIL_SIZE[1]}",
+            "--crop",
+            "centre",
+            "--output",
+            f"{cached_thumbnail}[Q=82,strip]",
+        ],
+        check=True,
+    )
+    shutil.copy2(cached_thumbnail, output_thumbnail)
+
+    with Image.open(cached_thumbnail) as source:
+        thumbnail = source.convert("RGB")
+        sample = thumbnail.copy()
         sample.thumbnail(SAMPLE_SIZE, Image.Resampling.LANCZOS)
         dominant_color, color_groups = analyze_colors(sample)
-
-        thumbnail = ImageOps.fit(image, THUMBNAIL_SIZE, Image.Resampling.LANCZOS)
-        cached_thumbnail.parent.mkdir(parents=True, exist_ok=True)
-        thumbnail.save(cached_thumbnail, "WEBP", quality=82, method=6)
-        shutil.copy2(cached_thumbnail, output_thumbnail)
 
         blur = thumbnail.resize((16, 9), Image.Resampling.BILINEAR)
         blur_buffer = io.BytesIO()
